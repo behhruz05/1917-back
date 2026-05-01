@@ -33,10 +33,8 @@ app.use(cors({
 
 app.use(express.json({ limit: "10kb" }))
 
-/* SWAGGER — faqat development rejimida */
-if (process.env.NODE_ENV !== "production") {
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
-}
+/* SWAGGER */
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 /* DATABASE */
 mongoose
